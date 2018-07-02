@@ -12,7 +12,7 @@ f.close()
 
 def convert_row(row):
     return """<record>
-    <field>%s</filename>
+    <filename>%s</filename>
     <recordGroup>%s</recordGroup>
     <series>%s</series>
     <fileUnit>%s</fileUnit>
