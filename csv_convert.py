@@ -9,8 +9,6 @@ f = open('mydata.csv')
 csv_f = csv.reader(f)
 
 # the parsed data from csv.reader() is converted into a list, and assigned to variable "all_rows"
-# we do this because csv.reader() returns something called a generator
-# generators have to be used in certain ways, so it's much easier to turn this into a list
 all_rows = list(csv_f)
 
 # the header row is separated out from the rest of the data; positionality in Python begins with 0
@@ -22,9 +20,11 @@ f.close()
 
 # defines our custom function that converts the iterated data in our new list into XML
 # %s is a placeholder for the data in each column
-# this script could be improved by not hard-coding the fields; for example, if I use this on a .csv with different fields it would not work
+# note: this script could be improved because the fields are currently "hard-coded"
+# i.e. only a .csv file with the below columns will work with this script
 # for simplicity I left it as is to demonstrate the basics of this function
-# if you're looking for a challenge try to convert this to something that could work with any .csv file
+# if you're looking for a challenge, this script can be modified to read any .csv file, no matter the colummns
+# and that's what programming's all about!
 def convert_row(row):
     return """<record>
     <field>%s</filename>
@@ -41,19 +41,19 @@ def convert_row(row):
 # opens a new .xml file that we are writing to, indicated by 'w'
 new_xml_file = open('converted.xml', 'w')
 
-# we loop over each row, not including the header
+# we loop over each row, not including the header since "data_rows" was previously assigned as the rest of our data
 for row in data_rows:
     
-    # convert each row to XML using our function above
+    # converts each row to XML using our custom function above
     xml_record = convert_row(row)
     
-    # write that converted XML to our new file
+    # writes that converted XML to our new file
     new_xml_file.write(xml_record)
     
-    # add a new line between records
+    # adds a new line between XML <record> tags
     new_xml_file.write('\n')
 
-# close our file
+# closes our file
 new_xml_file.close()
     
     
