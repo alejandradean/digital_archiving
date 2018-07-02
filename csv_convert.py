@@ -55,6 +55,3 @@ for row in data_rows:
 
 # closes our file
 new_xml_file.close()
-    
-    
-    
