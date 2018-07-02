@@ -1,5 +1,4 @@
 import os
-import csv
 
 filepath = r'C:\Users\adean\Desktop\ongoing'
 
