@@ -3,7 +3,7 @@ import csv
 
 # the open() function, a built-in Python function, opens my .csv file, assigning it to variable "f"
 # note: the path is relative, meaning the .csv is in the same directory as this script  
-f = open('vol_1_test.csv')
+f = open('mydata.csv')
 
 # csv.reader() was imported above and parses an opened file, assigning it to variable "csv_f"
 csv_f = csv.reader(f)
@@ -26,8 +26,8 @@ f.close()
 # for simplicity I left it as is to demonstrate the basics of this function
 # if you're looking for a challenge try to convert this to something that could work with any .csv file
 def convert_row(row):
-    return """<vitalRecord>
-    <filename>%s</filename>
+    return """<record>
+    <field>%s</filename>
     <recordGroup>%s</recordGroup>
     <series>%s</series>
     <fileUnit>%s</fileUnit>
@@ -36,10 +36,7 @@ def convert_row(row):
     <description>%s</description>
     <coverage>%s</coverage>
     <date>%s</date>
-    <vitalsYear>%s</vitalsYear>
-    <vitalsVolume>%s</vitalsVolume>
-    <vitalsPage>%s</vitalsPage>
-</vitalRecord>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11])
+</record>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 # opens a new .xml file that we are writing to, indicated by 'w'
 new_xml_file = open('converted.xml', 'w')
