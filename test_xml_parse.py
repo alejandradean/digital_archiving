@@ -22,8 +22,9 @@ for root, dirs, files in os.walk(filepath):
 
         vitaltuple = (title, date, dgs)
 
-        # need to include code for iteration 
-with open('vital_records_dgs_index.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    writer.writerow(['Title'] + ['Date'] + ['dgs Code'])
-    writer.writerows([vitaltuple])
+        with open('vital_records_dgs_index.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            writer.writerow(['Title'] + ['Date'] + ['dgs Code'])
+            writer.writerows([vitaltuple])
+   else:
+        
