@@ -1,8 +1,7 @@
 # INCOMPLETE SCRIPT
-# pip install lxml
 import os 
 import csv
-from lxml import etree
+import xml.etree.ElementTree as ET
 
 filepath = input('Enter filepath: ')
 
@@ -12,25 +11,18 @@ for root, dirs, files in os.walk(filepath):
     for dir in dirs:
         if len(os.dirname(dir)) > 14:
         os.chdir
-        doc = etree.parse(operationalMetadata.xml)
+        tree = ET.parse('operationalMetadata.xml')
+        root = tree.getroot()
 
-        # <folder> dgs attribute
-        folderElem = doc.find('folder')
-        print(folderElem.get('dgs'))
-        dgs = folderElem.get('dgs')
-
-        # <volume-designation> text
-        volDesElem = doc.find('volume-designation')
-        print(volDesElem.text)
-        title = volDesElem.text
-
-        # <record-dates> text
-        recordDatesElem = doc.find('record-dates')
-        print(recordDatesElem.text)
-        date = recordDatesElem.text
+        for folder in root.findall('folder'):
+            dgs = folder.get('dgs')
+            title = folder.find('volume-designation').text
+            date = folder.find('record-dates').text
+            print(dgs, title, date)
 
         vitaltuple = (title, date, dgs)
 
+        # need to include code for iteration 
 with open('vital_records_dgs_index.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     writer.writerow(['Title'] + ['Date'] + ['dgs Code'])
