@@ -11,8 +11,8 @@
 	 </xsl:copy>
 	</xsl:template>
 	
-	<xsl:template match="/vitalRecordDeaths">
-		<xsl:for-each select="/vitalRecordDeaths/vitalRecord">
+	<xsl:template match="/vitalRecord">
+		<xsl:for-each select="/vitalRecord/record">
 			<xsl:result-document href="{filename}.metadata">
 				<ma:record>
 					<ma:dc>
