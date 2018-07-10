@@ -18,7 +18,8 @@ data_rows = all_rows[1:]
 # closes .csv file
 f.close()
 
-# defines our custom function that converts the iterated data in our new list into XML
+# defines our custom function that converts a csv row to an XML record
+# the function will be used to iterate over the items in the "data_rows" list and convert them into XML
 # %s is a placeholder for the data in each column
 # note: this script could be improved because the fields are currently "hard-coded"
 # i.e. only a .csv file with the below columns will work with this script
@@ -26,17 +27,19 @@ f.close()
 # if you're looking for a challenge, this script can be modified to read any .csv file, no matter the colummns
 # and that's what programming's all about!
 def convert_row(row):
-    return """<record>
-    <field>%s</filename>
-    <recordGroup>%s</recordGroup>
-    <series>%s</series>
-    <fileUnit>%s</fileUnit>
-    <item>%s</item>
-    <title>%s</title>
-    <description>%s</description>
-    <coverage>%s</coverage>
-    <date>%s</date>
-</record>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+    return """
+    <record>
+        <field>%s</filename>
+        <recordGroup>%s</recordGroup>
+        <series>%s</series>
+        <fileUnit>%s</fileUnit>
+        <item>%s</item>
+        <title>%s</title>
+        <description>%s</description>
+        <coverage>%s</coverage>
+        <date>%s</date>
+    </record> 
+    """ % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 # opens a new .xml file that we are writing to, indicated by 'w'
 new_xml_file = open('converted.xml', 'w')
