@@ -27,19 +27,17 @@ f.close()
 # if you're looking for a challenge, this script can be modified to read any .csv file, no matter the colummns
 # and that's what programming's all about!
 def convert_row(row):
-    return """
-    <record>
-        <field>%s</filename>
-        <recordGroup>%s</recordGroup>
-        <series>%s</series>
-        <fileUnit>%s</fileUnit>
-        <item>%s</item>
-        <title>%s</title>
-        <description>%s</description>
-        <coverage>%s</coverage>
-        <date>%s</date>
-    </record> 
-    """ % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+    return """<record>
+    <filename>%s</filename>
+    <recordGroup>%s</recordGroup>
+    <series>%s</series>
+    <fileUnit>%s</fileUnit>
+    <item>%s</item>
+    <title>%s</title>
+    <description>%s</description>
+    <coverage>%s</coverage>
+    <date>%s</date>
+</record>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 # opens a new .xml file that we are writing to, indicated by 'w'
 new_xml_file = open('converted.xml', 'w')
