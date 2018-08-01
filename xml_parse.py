@@ -18,6 +18,6 @@ for root, dirs, files in os.walk('test_parse'):
 
             vitaltuple = (title, date, dgs)
             
-            with open(r'C:\Users\adean\Desktop\vital_records_dgs_index.csv', 'a') as csvfile:
+            with open(r'C:\Users\adean\Desktop\vital_records_dgs_index.csv', 'a', newline='') as csvfile:
                 writer = csv.writer(csvfile, delimiter=',')
                 writer.writerows([vitaltuple])
