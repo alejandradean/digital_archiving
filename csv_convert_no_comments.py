@@ -24,10 +24,13 @@ def convert_row(row):
 </record>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 new_xml_file = open('converted.xml', 'w')
+new_xml_file.write('<rootElement>')
+new_xml_file.write('\n')
 
 for row in data_rows:
     xml_record = convert_row(row)
     new_xml_file.write(xml_record)
     new_xml_file.write('\n')
 
+new_xml_file.write('</rootElement>')
 new_xml_file.close()
