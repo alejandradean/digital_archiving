@@ -1,0 +1,18 @@
+# work in progress to merge PDFs based on filename
+
+import os
+
+suffix = ('a')
+
+for root, dirs, files in os.walk(r'C:\Users\adean\Desktop\test_py'):
+    for filename in files:
+        file,extension = filename.split(".")
+        file_breakdown = file.split("_")
+
+        print(file_breakdown[-1])
+
+        file_breakdown[-1] = alpha_num_id
+
+        # if str(file).endswith(suffix):
+            # print(file)
+            # use pdpdf2 append() function to append page to previous file
