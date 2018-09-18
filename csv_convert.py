@@ -39,8 +39,10 @@ def convert_row(row):
     <date>%s</date>
 </record>""" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
-# opens a new .xml file that we are writing to, indicated by 'w'
+# opens a new .xml file that we are writing to, indicated by 'w', and adds a root element
 new_xml_file = open('converted.xml', 'w')
+new_xml_file.write('<rootElement>')
+new_xml_file.write('\n')
 
 # we loop over each row, not including the header since "data_rows" was previously assigned as the rest of our data
 for row in data_rows:
@@ -54,5 +56,6 @@ for row in data_rows:
     # adds a new line between XML <record> tags
     new_xml_file.write('\n')
 
-# closes our file
+# writes the closing tag for the root element and closes our file
+new_xml_file.write('</rootElement>')
 new_xml_file.close()
