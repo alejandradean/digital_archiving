@@ -10,7 +10,5 @@ Total beginner here. Sharing some basic Python 3 scripts I've used to manage ele
 
 **xml_parse.py**: walks through a directory and all subdirectories, opens and parses any file named "operationalMetadata.xml", and writes the values of three specified XML tags to a .csv file (values are appended, so .csv is not overwritten each time an XML file is parsed)
 
-**run_saxon.py**: invokes saxon XSLT processor 
-
 
 ~~ Catch me at alejandradean.com.
