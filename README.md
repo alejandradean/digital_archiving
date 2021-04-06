@@ -8,5 +8,6 @@ Total beginner here. Sharing some basic Python 3 scripts I've used to manage ele
 
 **archPlans_cardCreator_commented.py**: uses the ReportLab library to create 'virtual index cards' (as pdfs) for each row in a csv file
 
+**filename_deleter.py**: deletes files in a specified folder within the current working directory based on a list of filenames created from the first column of a csv file
 
 ~~ Catch me at alejandradean.com.
